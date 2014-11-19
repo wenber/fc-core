@@ -1,6 +1,15 @@
 [submodule "dep/er"]
     path = dep/er
     url = git@github.com:ecomfe/er.git
+[submodule "dep/eoo"]
+    path = dep/eoo
+    url = git@github.com:ecomfe/eoo.git
+[submodule "dep/etpl"]
+    path = dep/etpl
+    url = git@github.com:ecomfe/etpl.git
+[submodule "dep/mini-event"]
+    path = dep/mini-event
+    url = git@github.com:ecomfe/mini-event.git
 [submodule "dep/moment"]
     path = dep/moment
     url = git@github.com:moment/moment.git
