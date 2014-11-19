@@ -9,7 +9,7 @@
     ],
     "dependencies": {},
     "main": "main",
-    "description": "FC 基础层，提供基础方法，并封装了所有的依赖库。",
+    "description": "FC 基础层，提供基础方法，并封装了依赖库",
     "homepage": "https://github.com/fcfe/fc-core",
     "repository": "git://github.com/fcfe/fc-core",
     "edp": {
@@ -18,6 +18,13 @@
         "srcDir": "src",
         "loaderAutoConfig": "js,htm,html,tpl,vm,phtml",
         "loaderUrl": "http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js",
-        "dependencies": {}
+        "dependencies": {
+            "eoo": "~0.1.1",
+            "er": "~3.1.0-beta.5",
+            "etpl": "~3.0.0",
+            "mini-event": "~1.0.2",
+            "underscore": "~1.6.0",
+            "moment": "~2.7.0"
+        }
     }
 }
