@@ -1,0 +1,23 @@
+{
+    "name": "fc-core",
+    "version": "0.0.1-alpha.1",
+    "contributors": [
+        {
+            "name": "Leo Wang",
+            "email": "wangkemiao@baidu.com"
+        }
+    ],
+    "dependencies": {},
+    "main": "main",
+    "description": "FC 基础层，提供基础方法，并封装了所有的依赖库。",
+    "homepage": "https://github.com/fcfe/fc-core",
+    "repository": "git://github.com/fcfe/fc-core",
+    "edp": {
+        "wwwroot": "/",
+        "depDir": "dep",
+        "srcDir": "src",
+        "loaderAutoConfig": "js,htm,html,tpl,vm,phtml",
+        "loaderUrl": "http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js",
+        "dependencies": {}
+    }
+}
