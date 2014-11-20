@@ -1,18 +1,13 @@
 {
     "name": "fc-core",
-    "version": "0.0.1-alpha.1",
+    "version": "0.0.1-alpha.2",
     "maintainers": [
         {
             "name": "Leo Wang",
             "email": "wangkemiao@baidu.com"
         }
     ],
-    "contributors": [
-        {
-            "name": "Leo Wang",
-            "email": "wangkemiao@baidu.com"
-        }
-    ],
+    "contributors": [],
     "dependencies": {},
     "main": "main",
     "description": "FC 基础层，提供基础方法，并封装了依赖库",

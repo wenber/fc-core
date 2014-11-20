@@ -13,7 +13,13 @@ define(function (require) {
      * @module fc
      */
     var fc = {
-        version: '0.0.1.alpha.1',
+        version: '0.0.1.alpha.2',
+
+        /**
+         * 浏览器信息
+         * @type {Object}
+         */
+        browser: require('./browser'),
 
         /**
          * aop相关的方法集
