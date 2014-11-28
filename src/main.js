@@ -13,13 +13,10 @@ define(function (require) {
      * @module fc
      */
     var fc = {
-        version: '0.0.1.alpha.2',
+        version: '0.0.1.alpha.3',
 
-        /**
-         * 浏览器信息
-         * @type {Object}
-         */
-        browser: require('./browser'),
+        // 立即执行
+        setImmediate: require('promise/setImmediate'),
 
         /**
          * aop相关的方法集
@@ -44,12 +41,6 @@ define(function (require) {
          * @type {Object}
          */
         tpl: require('etpl'),
-
-        /**
-         * 自定义事件类
-         * @type {Class}
-         */
-        EventTarget: require('mini-event/EventTarget'),
 
         /**
          * 扩展的工具方法集

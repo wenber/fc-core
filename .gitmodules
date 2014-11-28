@@ -10,3 +10,6 @@
 [submodule "dep/etpl"]
 	path = dep/etpl
 	url = https://github.com/ecomfe/etpl.git
+[submodule "dep/promise"]
+	path = dep/promise
+	url = https://github.com/ecomfe/promise.git

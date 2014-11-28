@@ -6,6 +6,7 @@
  */
 
 define(function (require) {
+    'use strict';
 
     var _ = require('underscore');
     var assert = require('./assert');
@@ -264,12 +265,29 @@ define(function (require) {
      * @return {Object} 用于自定义事件使用的参数
      */
     util.customData = function (data) {
-        assert.equals($.isPlainObject(data), true,
-            '传入的data必须为一个有效的Object Map格式');
-
         return {
             data: data
         };
+    };
+
+    /**
+     * 将一段文本变为JSON对象
+     *
+     * @param {string} text 文本内容
+     * @return {Mixed} 对应的JSON对象
+     */
+    util.parseJSON = function (text) {
+        if (!text) {
+            return undefined;
+        }
+
+        if (window.JSON && typeof JSON.parse === 'function') {
+            return JSON.parse(text);
+        }
+        else {
+            /* jshint evil: true */
+            return new Function('return (' + text + ');')();
+        }
     };
 
     return util;

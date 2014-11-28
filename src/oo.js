@@ -1,6 +1,6 @@
 /**
  * @ignore
- * @file OO相关的方法
+ * @file OO相关的方法集，类的创建 & 继承
  *
  * @author Leo Wang(wangkemiao@baidu.com)
  */
@@ -37,7 +37,7 @@ define(function (require) {
     exports.derive = function(superClass, overrides) {
 
         assert.has(superClass, 'fc.oo.derive使用时必须指定`superClass`参数！');
-        assert.equal(
+        assert.equals(
             _.isObject(overrides) || overrides === undefined,
             true,
             '错误的fc.oo.derive参数，传入的`overrides`必须是一个Object'
