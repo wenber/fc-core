@@ -7,7 +7,9 @@
 
 define(function (require) {
     'use strict';
-    if (window.DEBUG) {
+
+    var search = window.location.search.substring(1);
+    if (window.DEBUG || /\bdebug\b/g.test(search)) {
         /**
          * @class assert
          *

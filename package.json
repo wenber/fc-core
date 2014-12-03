@@ -1,6 +1,6 @@
 {
     "name": "fc-core",
-    "version": "0.0.1-alpha.3",
+    "version": "0.0.1-alpha.4",
     "maintainers": [
         {
             "name": "Leo Wang",
@@ -20,10 +20,10 @@
         "loaderAutoConfig": "js,htm,html,tpl,vm,phtml",
         "loaderUrl": "http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-6/esl.js",
         "dependencies": {
-            "eoo": "~0.1.1",
-            "etpl": "~3.0.0",
-            "mini-event": "~1.0.2",
-            "promise": "~1.0.0",
+            "eoo": "0.x",
+            "etpl": "3.x",
+            "mini-event": "1.x",
+            "promise": "1.x",
             "underscore": "~1.6.0"
         }
     }

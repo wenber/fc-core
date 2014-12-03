@@ -6,6 +6,6 @@
 define(function (require) {
     'use strict';
 
-    // 当前直接使用ecomfe/promise库
+    // 当前直接使用mini-event/EventTarget库
     return require('mini-event/EventTarget');
 });

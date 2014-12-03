@@ -13,10 +13,7 @@ define(function (require) {
      * @module fc
      */
     var fc = {
-        version: '0.0.1.alpha.3',
-
-        // 立即执行
-        setImmediate: require('promise/setImmediate'),
+        version: '0.0.1.alpha.4',
 
         /**
          * aop相关的方法集
@@ -36,6 +33,9 @@ define(function (require) {
          */
         oo: require('./oo'),
 
+        // 立即执行
+        setImmediate: require('./setImmediate'),
+
         /**
          * TPL相关的方法集，当前直接使用etpl
          * @type {Object}
@@ -48,6 +48,13 @@ define(function (require) {
          */
         util: require('./util')
     };
+
+    // fc.tpl.config({
+    //     namingConflict: 'ignore'
+    // });
+
+    // 扩展underscore
+    require('./extension/underscore').activate();
 
     return fc;
 });
