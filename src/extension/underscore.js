@@ -32,13 +32,13 @@ define(function(require) {
         u.each(
             object,
             function (value, key) {
-                var isDefaultNull = 
+                var isDefaultNull =
                     value == null || value === '';
-                var isInDefaults = 
+                var isInDefaults =
                     defaults.hasOwnProperty(key) && defaults[key] === value;
                 if (!isDefaultNull && !isInDefaults) {
                     if (deep && typeof value === 'object') {
-                        purifiedObject[key] = 
+                        purifiedObject[key] =
                             purify(value, defaults[key], deep);
                     }
                     else {
@@ -124,8 +124,10 @@ define(function(require) {
         );
         // 大写字符之间用横线连起来
         s = s.replace(
-            /[A-Z]/g, 
-            function(match) { return '-' + match.toLowerCase(); }
+            /[A-Z]/g,
+            function(match) {
+                return '-' + match.toLowerCase();
+            }
         );
         if (s.charAt(0) === '-') {
             s = s.substring(1);
@@ -220,9 +222,7 @@ define(function(require) {
             var left = new Array(padLength + 1).join(padding);
             return left + s;
         }
-        else {
-            return s;
-        }
+        return s;
     };
 
     /**
@@ -233,16 +233,14 @@ define(function(require) {
      * @param {number} length 补齐后的长度
      * @return {string}
      */
-    util.padRight = function() {
+    util.padRight = function(s, padding, length) {
         s = s + '';
         var padLength = length - s.length;
         if (padLength > 0) {
             var right = new Array(padLength + 1).join(padding);
             return s + right;
         }
-        else {
-            return s;
-        }
+        return s;
     };
 
     /**

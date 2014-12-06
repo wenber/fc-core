@@ -9,7 +9,6 @@ define(function (require) {
     'use strict';
 
     var _ = require('underscore');
-    var assert = require('./assert');
 
     /**
      * 工具方法的namespace

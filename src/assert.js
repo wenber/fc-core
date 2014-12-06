@@ -9,10 +9,10 @@ define(function (require) {
     'use strict';
 
     var search = window.location.search.substring(1);
+    var assert;
     if (window.DEBUG || /\bdebug\b/g.test(search)) {
+
         /**
-         * @class assert
-         *
          * 断言函数
          *
          * 断言函数仅在开发期有效，当`window.DEBUG`属性为`true`时，
@@ -21,11 +21,12 @@ define(function (require) {
          * 断言是[契约式编程](http://en.wikipedia.org/wiki/Design_by_contract)
          * 中很重要的一块，使用得当可以有效地提高程序的质量，因此ER提供了此功能
          *
+         * @singleton
+         *
          * @param {boolean} condition 断言结果
          * @param {string} message 断言结果为`false`时提示的信息
-         * @singleton
          */
-        var assert = function (condition, message) {
+        assert = function (condition, message) {
             if (!condition) {
                 throw new Error(message);
             }
@@ -117,15 +118,14 @@ define(function (require) {
 
         return assert;
     }
-    else {
-        var assert = function () {};
-        assert.has = assert;
-        assert.equals = assert;
-        assert.hasProperty = assert;
-        assert.lessThan = assert;
-        assert.greaterThan = assert;
-        assert.lessThanOrEquals = assert;
-        assert.greaterThanOrEquals = assert;
-        return assert;
-    }
+
+    assert = function () {};
+    assert.has = assert;
+    assert.equals = assert;
+    assert.hasProperty = assert;
+    assert.lessThan = assert;
+    assert.greaterThan = assert;
+    assert.lessThanOrEquals = assert;
+    assert.greaterThanOrEquals = assert;
+    return assert;
 });

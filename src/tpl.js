@@ -5,6 +5,5 @@
  */
 
 define(function (require) {
-    
     return require('etpl/tpl');
 });

@@ -238,8 +238,9 @@ define(
          */
         exports.toArray = function () {
             var array = [];
+            var i;
             if (arguments.length > 0) {
-                for (var i = 0; i < arguments.length; i++) {
+                for (i = 0; i < arguments.length; i++) {
                     var hint = arguments[i];
                     if (typeof hint === 'string') {
                         array.push(this.fromAlias(hint));
@@ -251,7 +252,7 @@ define(
             }
             else {
                 // 必须做一次复制操作，不能让外部的修改影响枚举结构
-                for (var i = 0; i < this.valueIndex.length; i++) {
+                for (i = 0; i < this.valueIndex.length; i++) {
                     // 由于`value`不一定是连续的，所以一定要去除空项
                     if (this.valueIndex[i]) {
                         array.push(this.valueIndex[i]);
