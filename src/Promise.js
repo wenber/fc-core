@@ -16,16 +16,42 @@ define(function (require) {
      *
      * @static
      * @member Promise
-     * @param {*} value
-     * @returns {Promise}
+     * @param {*} value 要转化的值
+     * @return {Promise}
      */
     Promise.cast = Promise.cast || function (value) {
         if (value && typeof value === 'object' && value.constructor === this) {
             return value;
         }
 
-        return new Promise(function (resolve) { resolve(value); });
+        return new Promise(function (resolve) {
+            resolve(value);
+        });
     };
+
+    // 修复Promise.require
+    /**
+     * 返回一个{@link meta.Promise}对象，
+     * 当指定的模块被AMD加载器加载后，进入`resolved`状态
+     *
+     * @param {string[]} modules 需要加载的模块列表
+     * @return {meta.Promise}
+     * @static
+     */
+    function promiseRequire(modules) {
+        // 这个函数不实现 node 版本了，没啥意义。。
+        var abort;
+        var promise = new this(
+            function (resolve, reject) {
+                window.require(modules, resolve);
+                abort = reject;
+            }
+        );
+        promise.abort = abort;
+        return promise;
+    }
+
+    Promise.require = promiseRequire;
 
     return Promise;
 });
