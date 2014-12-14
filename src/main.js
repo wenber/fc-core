@@ -49,9 +49,9 @@ define(function (require) {
         util: require('./util')
     };
 
-    // fc.tpl.config({
-    //     namingConflict: 'ignore'
-    // });
+    fc.tpl.config({
+        namingConflict: 'ignore'
+    });
 
     // 扩展underscore
     require('./extension/underscore').activate();
