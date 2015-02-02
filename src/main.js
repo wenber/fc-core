@@ -10,7 +10,7 @@ define(function (require) {
 
     /**
      * FC 基础层 入口模块
-     * @module fc
+     * @class main
      */
     var fc = {
         version: '0.0.1.alpha.7',
@@ -46,7 +46,12 @@ define(function (require) {
          * 扩展的工具方法集
          * @type {Object}
          */
-        util: require('./util')
+        util: require('./util'),
+
+        /**
+         * 自定义事件的封装
+         */
+        event: require('mini-event')
     };
 
     fc.tpl.config({

@@ -11,7 +11,8 @@ define(function (require) {
 
     /**
      * aop方法的namespace
-     * @module aop
+     * @class aop
+     * @singleton
      */
     var aop = {};
 

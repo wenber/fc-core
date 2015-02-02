@@ -40,7 +40,7 @@ define(function (require) {
      */
     function parseUserAgent(rawUa) {
         var version = rawUa.match(
-                /(IE|Firefox|Opera|Chrome|Safari)[ \/](\d+(\.\d+)?)/i);
+                /(IE|Trident|Firefox|Opera|Chrome|Safari)[ \/](\d+(\.\d+)?)/i);
         if (version && version[0]) {
             return version[0];
         }
@@ -53,7 +53,7 @@ define(function (require) {
      * @return {boolean} Return true if it's one kind of IE browser.
      */
     function isIe(rawUa) {
-        return rawUa.indexOf('IE') !== -1;
+        return rawUa.indexOf('IE') !== -1 || rawUa.indexOf('Trident/7.0') !== -1;
     }
 
     /**
@@ -183,6 +183,13 @@ define(function (require) {
         browserData[key.BROWSER] = browserData[key.USER_AGENT].split(/[ /]/)[0];
         browserData[key.BROWSER_VERSION] =
             + browserData[key.USER_AGENT].split(/[ /]/)[1];
+
+        // IE 11 特殊处理
+
+        if (browserData[key.BROWSER] === 'Trident') {
+            browserData[key.BROWSER] = 'IE';
+            browserData[key.BROWSER_VERSION] = 11;
+        }
     }
 
     /**

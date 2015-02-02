@@ -21,6 +21,7 @@ define(function (require) {
          * 断言是[契约式编程](http://en.wikipedia.org/wiki/Design_by_contract)
          * 中很重要的一块，使用得当可以有效地提高程序的质量，因此ER提供了此功能
          *
+         * @class assert
          * @singleton
          *
          * @param {boolean} condition 断言结果

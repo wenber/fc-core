@@ -6,6 +6,10 @@
 define(function (require) {
     'use strict';
 
-    // 当前直接使用mini-event/EventTarget库
+    /**
+     * 当前直接使用mini-event/EventTarget库
+     * @class EventTarget
+     * @alias EventTarget.prototype
+     */
     return require('mini-event/EventTarget');
 });

@@ -11,8 +11,8 @@ define(function (require) {
     var _ = require('underscore');
 
     /**
-     * 工具方法的namespace
-     * @module util
+     * 工具方法集合
+     * @class util
      */
     var util = {};
 

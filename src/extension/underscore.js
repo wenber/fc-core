@@ -15,6 +15,31 @@ define(function(require) {
     var util = {};
 
     /**
+     * 在一个Array或Object数据中，查找一个key的数据，并删除它，返回这个数据
+     * @param {Array|Object} target 目标数据
+     * @param {number|string} key 目标key
+     * @return {*}
+     */
+    util.detach = function (target, key) {
+        var result;
+        // 不支持伪Array，例如DOM List
+        if (target instanceof Array) {
+            if (target[key] !== undefined) {
+                result = target[key];
+                target.splice(key, 1);
+            }
+        }
+        else if (u.isObject(target)) {
+            if (target[key] !== undefined) {
+                result = target[key];
+                delete target[key];
+            }
+        }
+
+        return result;
+    };
+
+    /**
      * 清理对象中无用的键值对
      *
      * 默认会去除所有值为`null`、`undefined`以及空字符串`""`的键值对
@@ -136,15 +161,15 @@ define(function(require) {
     };
 
     /**
-     * 将一个符合规则的字符串转成`THIS_IS_A_CONST`的常量形式
+     * 将一个符合dasherize规则的字符串转成`THIS_IS_A_CONST`的常量形式
      *
-     * 具体规则参考{@link util#pascalize}方法的说明
+     * 输入格式可参考{@link util#dasherize}方法的说明
      *
      * @param {string} s 输入的字符串
      * @return {string}
      */
     util.constanize = function(s) {
-        s = util.pascalize(s);
+        s = s.replace(/-/g, '_');
         return s.toUpperCase();
     };
 

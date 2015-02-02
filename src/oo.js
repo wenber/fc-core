@@ -13,8 +13,9 @@ define(function (require) {
     var oo = require('eoo');
 
     /**
-     * OO相关的方法
-     * @module oo
+     * OO相关的方法，基于eoo简易封装
+     * @class oo
+     * @singleton
      */
     var exports = {};
 

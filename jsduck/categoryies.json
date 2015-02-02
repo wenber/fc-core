@@ -1,0 +1,40 @@
+[
+    {
+        "name": "fc-core",
+        "groups": [
+            {
+                "name": "核心组件",
+                "classes": [
+                    "main"
+                ]
+            },
+            {
+                "name": "工具组件",
+                "classes": [
+                    "aop",
+                    "assert",
+                    "browser",
+                    "Enum",
+                    "EventTarget",
+                    "oo",
+                    "Promise",
+                    "setImmediate",
+                    "tpl",
+                    "util"
+                ]
+            },
+            {
+                "name": "外部扩展",
+                "classes": [
+                    "underscore"
+                ]
+            },
+            {
+                "name": "内部数据结构",
+                "classes": [
+                    "meta.*"
+                ]
+            }
+        ]
+    }
+]

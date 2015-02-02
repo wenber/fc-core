@@ -6,7 +6,10 @@
 define(function (require) {
     'use strict';
 
-    // 当前直接使用ecomfe/promise库
+    /**
+     * 当前直接使用ecomfe/promise库
+     * @class Promise
+     */
     var Promise = require('promise');
 
     // 但是进行一下特性的fix，因为例如cast在Chrome中又没了
