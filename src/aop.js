@@ -4,6 +4,7 @@
  * Refer: http://en.wikipedia.org/wiki/Aspect-oriented_programming
  *
  * @author Leo Wang(wangkemiao@baidu.com)
+ * @author Pride Leong(liangjinping@baidu.com)
  */
 
 define(function (require) {
@@ -24,13 +25,13 @@ define(function (require) {
      * @param {Function} aspectMethod The method to be injected before
      *     the core method.
      */
-    aop.before = function(context, methodName, aspectMethod) {
+    aop.before = function (context, methodName, aspectMethod) {
         if (!aspectMethod) {
             // Do nothing if the aspectMethod is invalid.
             return;
         }
         var original = context[methodName];
-        context[methodName] = function() {
+        context[methodName] = function () {
             // 为了防止前置出错
             try {
                 aspectMethod.apply(this, arguments);
@@ -50,13 +51,13 @@ define(function (require) {
      * @param {Function} aspectMethod The method to be injected before
      *     the core method.
      */
-    aop.beforeReject = function(context, methodName, aspectMethod) {
+    aop.beforeReject = function (context, methodName, aspectMethod) {
         if (!aspectMethod) {
             // Do nothing if the aspectMethod is invalid.
             return;
         }
         var original = context[methodName];
-        context[methodName] = function() {
+        context[methodName] = function () {
             if (aspectMethod.apply(this, arguments)) {
                 return original.apply(this, arguments);
             }
@@ -71,13 +72,13 @@ define(function (require) {
      * @param {Function} aspectMethod The method to be injected after
      *     the core method.
      */
-    aop.after = function(context, methodName, aspectMethod) {
+    aop.after = function (context, methodName, aspectMethod) {
         if (!aspectMethod) {
             // Do nothing if the aspectMethod is invalid.
             return;
         }
         var original = context[methodName];
-        context[methodName] = function() {
+        context[methodName] = function () {
             var result = original.apply(this, arguments);
             // 为了防止后置出错
             try {
@@ -99,9 +100,38 @@ define(function (require) {
      * @param {Function} afterMethod The method to be injected after the core
      *     method.
      */
-    aop.around = function(context, methodName, beforeMethod, afterMethod) {
+    aop.around = function (context, methodName, beforeMethod, afterMethod) {
         aop.before(context, methodName, beforeMethod);
         aop.after(context, methodName, afterMethod);
+    };
+
+    /**
+     * Hijack the method and return specify value
+     *
+     * @param {Object} context The obj that the method belongs to.
+     * @param {string} methodName The name of the method in the context.
+     * @param {Function} aspectMethod The method to be hijacked
+     */
+    aop.hijack = function (context, methodName, aspectMethod) {
+        if (!aspectMethod) {
+            // Do nothing if the aspectMethod is invalid.
+            return;
+        }
+        var original = context[methodName];
+        context[methodName] = function () {
+            var result;
+            // 如果劫持方法返回undefined则正常返回原来的方法的执行结果
+            // 否则返回劫持方法的执行结果
+            try {
+                result = aspectMethod.apply(context, arguments);
+            }
+            finally {
+                if (undefined !== result) {
+                    return result;
+                }
+            }
+            return original.apply(context, arguments);
+        };
     };
 
     return aop;
