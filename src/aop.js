@@ -106,11 +106,15 @@ define(function (require) {
     };
 
     /**
-     * Hijack the method and return specify value
+     * 劫持原方法，在注入方法有返回结果的情况下终止原方法的执行
      *
-     * @param {Object} context The obj that the method belongs to.
-     * @param {string} methodName The name of the method in the context.
-     * @param {Function} aspectMethod The method to be hijacked
+     * 劫持${context}的${methodName}方法，并以${aspectMethod}的执行结果替代返回
+     * 如果${aspectMethod}没有返回或者执行异常，则继续使用${context[methodName]}
+     * 方法的结果返回
+     *
+     * @param {Object} context 注入方法的上下文
+     * @param {string} methodName 方法名
+     * @param {Function} aspectMethod 注入的方法
      */
     aop.hijack = function (context, methodName, aspectMethod) {
         if (!aspectMethod) {
