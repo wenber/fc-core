@@ -227,6 +227,75 @@ define(
         };
 
         /**
+         * 根据别名移除对应的枚举项
+         *
+         * @method Enum#.removeElementFromAlias
+         *
+         * @param {string} alias 别名
+         * @return {?Enum} 返回移除的枚举项
+         */
+        exports.removeElementFromAlias = function (alias) {
+            var element = this.fromAlias(alias);
+            var me = this;
+            if (element) {
+                // 移除自身属性
+                delete me[element.value];
+                delete me[element.alias];
+                // 移除封装属性
+                delete me.valueIndex[element.value];
+                delete me.aliasIndex[element.alias];
+                delete me.textIndex[element.text];
+            }
+            return element;
+        };
+
+        /**
+         * 根据文字移除对应的枚举项
+         *
+         * @method Enum#.removeElementFromText
+         *
+         * @param {string} text 文字
+         * @return {?Enum} 返回移除的枚举项
+         */
+        exports.removeElementFromText = function (text) {
+            var element = this.fromText(text);
+            var me = this;
+            if (element) {
+                // 移除自身属性
+                delete me[element.value];
+                delete me[element.alias];
+                // 移除封装属性
+                delete me.valueIndex[element.value];
+                delete me.aliasIndex[element.alias];
+                delete me.textIndex[element.text];
+            }
+            return element;
+        };
+
+        /**
+         * 根据数值移除对应的枚举项
+         *
+         * @method Enum#.removeElementFromValue
+         *
+         * @param {number} value 数值
+         * @return {?Enum} 返回移除的枚举项
+         */
+        exports.removeElementFromValue = function (value) {
+            var element = this.fromValue(value);
+            var me = this;
+            if (element) {
+                // 移除自身属性
+                delete me[element.value];
+                delete me[element.alias];
+                // 移除封装属性
+                delete me.valueIndex[element.value];
+                delete me.aliasIndex[element.alias];
+                delete me.textIndex[element.text];
+            }
+            return element;
+        };
+
+        /**
          * 将当前枚举转换为数组，常用于下拉选择控件之类的数据源
          *
          * @method Enum#.toArray
